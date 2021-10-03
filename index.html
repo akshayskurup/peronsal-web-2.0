@@ -26,6 +26,7 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
 </head>
@@ -120,7 +121,7 @@
 
           <div class="col-lg-8 mt-5 mt-lg-0">
 
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form" >
+            <form action=""  role="form" class="submit-form" >
               <div class="row">
                 <div class="col-md-6 form-group">
                   <input type="text" name="name" class="form-control" style="background: black" id="name" placeholder="Your Name" required>
@@ -180,6 +181,26 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  
+  <script>
+    $(".submit-form").submit((e)=>{
+        e.preventDefault()
+        $.ajax({
+            url:"https://script.google.com/macros/s/AKfycby6JIGv-V2Izf3zmujKgvCcHMlY4e8yaNCNyjsC/exec",
+            data:$(".submit-form").serialize(),
+            method:"post",
+            success:function (response){
+                alert("Form submitted successfully")
+                window.location.reload()
+                //window.location.href="https://google.com"
+            },
+            error:function (err){
+                alert("Something Error")
+
+            }
+        })
+    })
+  </script>
 
 </body>
 
